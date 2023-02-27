@@ -1,0 +1,25 @@
+---
+title: "psnr"
+author: "koubach abdelmajid"
+date: "3/11/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+```{r}
+NAm2 = read.table("psnr_graph.txt")
+plot(x=NAm2$V2,y=NAm2$V1, type="l", xlab="Sigma", ylab="PSNR", main="formes2s70", col="blue")
+NAm3 = read.table("eqm_graph_20.txt")
+plot(x=NAm3$V2,y=NAm3$V1, type="l", xlab="Taille du masque", ylab="EQM", main="Sigma(20)", col="blue")
+NAm4 = read.table("complexite.txt")
+plot(x=NAm4$V2,y=NAm4$V1, type="l", xlab="Sigma", ylab="Temps", main="Complexite", col="blue")
+NAm5 = read.table("complexite_fft.txt")
+lines(x=NAm4$V2, y=NAm5$V1, type="l", xlab="Sigma", ylab="Temps", main="Complexite", col="red")
+NAm6 = read.table("complexite_2D.txt")
+lines(x=NAm4$V2, y=NAm6$V1, type="l", xlab="Sigma", ylab="Temps", main="Complexite", col="green")
+
+```
